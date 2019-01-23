@@ -493,6 +493,44 @@
 
           
 
+
+	<div onclick="showGitment" id="gitment_title" class="gitment_title"></div>
+	<div id="container" style="display:none"></div>
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+	  const myTheme = {
+		render(state, instance) {
+		  const container = document.createElement('div');
+		  container.lang = "en-US";
+		  container.className = 'gitment-container gitment-root-container';
+		  container.appendChild(instance.renderHeader(state, instance));
+		  container.appendChild(instance.renderEditor(state, instance));
+		  container.appendChild(instance.renderComments(state, instance));
+		  container.appendChild(instance.renderFooter(state, instance));
+		  return container;
+		}
+	  }
+
+	  function showGitment() {
+		$("#gitment_title").attr("style", "display:none");
+		$("#container").attr("style", "").addClass("gitment_container");
+		var gitment = new Gitment({
+		  id: decodeURI(page.date),
+		  theme: myTheme,
+		  owner: 'li1615882553',
+		  repo: 'li1615882553.github.io',
+		  oauth: {
+			client_id: 'f6488844bb6dafe05493',
+			client_secret: '6b08eed5ba23d2ea982fd3fec96b9af7e2400468'
+		  }
+		});
+		gitment.render('container');
+	  }
+	</script>
+ 
+
+
         </div>
         
           
@@ -763,6 +801,24 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
 
 
 
