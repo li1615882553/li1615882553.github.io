@@ -109,7 +109,7 @@
 
 
 
-  <meta name="keywords" content=",">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -122,15 +122,17 @@
 
 
 
-<meta name="keywords" content="A_Bo">
+<meta name="description" content="printf(&amp;quot;Hello world!&amp;quot;)">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
+<meta property="og:title" content="A_Bo">
 <meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="A_Bo">
+<meta property="og:description" content="printf(&amp;quot;Hello world!&amp;quot;)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-23T13:44:09.266Z">
+<meta property="og:updated_time" content="2019-01-24T03:11:09.722Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
+<meta name="twitter:title" content="A_Bo">
+<meta name="twitter:description" content="printf(&amp;quot;Hello world!&amp;quot;)">
 
 
 
@@ -166,7 +168,7 @@
 
 
 
-  <title>about | A_Bo</title>
+  <title>A_Bo | A_Bo</title>
   
 
 
@@ -328,7 +330,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
+	<h1 class="post-title" itemprop="name headline">A_Bo</h1>
 
 
 
@@ -340,7 +342,8 @@
       <div class="post-body">
         
         
-          
+          <p><code>printf(&quot;Hello world!&quot;)</code></p>
+
         
       </div>
       
@@ -358,6 +361,18 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+  
+
 
 
 	<div onclick="showGitment" id="gitment_title" class="gitment_title"></div>
@@ -694,6 +709,34 @@
       </style>
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'li1615882553',
+            repo: 'li1615882553.github.io',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '6b08eed5ba23d2ea982fd3fec96b9af7e2400468',
+            
+                client_id: 'f6488844bb6dafe05493'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
     
 
 

@@ -127,7 +127,7 @@
 <meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="A_Bo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-16T12:54:23.528Z">
+<meta property="og:updated_time" content="2019-01-24T03:11:13.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tags">
 
@@ -364,18 +364,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-      
-        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
-        <div id="gitment-container" style="display:none"></div>
-      
-    </div>
-
-  
-  
-
 
 
 	<div onclick="showGitment" id="gitment_title" class="gitment_title"></div>
@@ -712,34 +700,6 @@
       </style>
     
 
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'li1615882553',
-            repo: 'li1615882553.github.io',
-            
-            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '6b08eed5ba23d2ea982fd3fec96b9af7e2400468',
-            
-                client_id: 'f6488844bb6dafe05493'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      function showGitment(){
-        document.getElementById("gitment-display-button").style.display = "none";
-        document.getElementById("gitment-container").style.display = "block";
-        renderGitment();
-      }
-      
-      </script>
     
 
 
