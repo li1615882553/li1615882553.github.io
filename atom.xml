@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-01T08:36:50.117Z</updated>
+  <updated>2019-02-01T10:20:47.076Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,9 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PAT_1093</title>
+    <link href="http://yoursite.com//PAT/cjrlwel1z00024ov9ijmu1am6/"/>
+    <id>http://yoursite.com//PAT/cjrlwel1z00024ov9ijmu1am6/</id>
+    <published>2019-02-01T10:17:48.000Z</published>
+    <updated>2019-02-01T10:20:47.076Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1093-Count-PAT’s"><a href="#1093-Count-PAT’s" class="headerlink" title="1093 Count PAT’s"></a><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805373582557184" target="_blank" rel="noopener">1093 Count PAT’s</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>The string <code>APPAPT</code> contains two <code>PAT</code>‘s as substrings. The first one is formed by the 2nd, the 4th, and the 6th characters, and the second one is formed by the 3rd, the 4th, and the 6th characters.</p><p>Now given any string, you are supposed to tell the number of <code>PAT</code>‘s contained in the string.</p><h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, there is only one line giving a string of no more than 105 characters containing only <code>P</code>, <code>A</code>, or <code>T</code>.</p><h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, print in one line the number of <code>PAT</code>‘s contained in the string. Since the result may be a huge number, you only have to output the result moded by 1000000007.</p><h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">APPAPT</span></span><br></pre></td></tr></table></figure><h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>求出一个字符串中所包含的连续或不连续的子串”PAT”的个数， 首先想到的是遍历字符串中的P，然后确定A，最后寻找T，确定前面两个，子串个数为A位置后面T字符的个数，但是这样的思路，时间复杂度为O(n^2)，时间应该会超限</p><p>既然确定P时间复杂度很高，我们可以确定中间的A，做一次预处理，求出A位置之前的P出现的次数，A位置之后T出现的次数，这样将两个出现的次数相乘，即可确定当前中间A固定的子串PAT的个数</p><h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="built_in">string</span> s;</span><br><span class="line"><span class="keyword">int</span> p[maxn],t[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">    <span class="keyword">int</span> len = s.length();</span><br><span class="line">    <span class="keyword">if</span>(s[<span class="number">0</span>] == <span class="string">'P'</span>) p[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(s[<span class="number">0</span>] == <span class="string">'T'</span>) t[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; len;i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] == <span class="string">'P'</span>)</span><br><span class="line">            p[i] = p[i<span class="number">-1</span>] + <span class="number">1</span>,t[i] = t[i<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">'T'</span>)</span><br><span class="line">            t[i] = t[i<span class="number">-1</span>] + <span class="number">1</span>,p[i] = p[i<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            t[i] = t[i<span class="number">-1</span>],p[i] = p[i<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">num_t</span> = t[len<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len;i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] == <span class="string">'A'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ans += (p[i] * (<span class="keyword">num_t</span> - t[i])) % mod;</span><br><span class="line">            ans %= mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;1093-Count-PAT’s&quot;&gt;&lt;a href=&quot;#1093-Count-PAT’s&quot; class=&quot;headerlink&quot; title=&quot;1093 Count PAT’s&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://pintia.cn/problem-set
+      
+    
+    </summary>
+    
+      <category term="PAT" scheme="http://yoursite.com/categories/PAT/"/>
+    
+    
+      <category term="PAT" scheme="http://yoursite.com/tags/PAT/"/>
+    
+      <category term="思维" scheme="http://yoursite.com/tags/%E6%80%9D%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PAT_1146</title>
-    <link href="http://yoursite.com//PAT/cjrlso9k4000bhcv97khizzvh/"/>
-    <id>http://yoursite.com//PAT/cjrlso9k4000bhcv97khizzvh/</id>
+    <link href="http://yoursite.com//PAT/cjrlwel2y000h4ov9ss47ukav/"/>
+    <id>http://yoursite.com//PAT/cjrlwel2y000h4ov9ss47ukav/</id>
     <published>2019-02-01T08:33:04.000Z</published>
     <updated>2019-02-01T08:36:50.117Z</updated>
     
@@ -45,8 +72,8 @@
   
   <entry>
     <title>PAT_1144</title>
-    <link href="http://yoursite.com//PAT/cjrlso9k1000ahcv92fh7rurv/"/>
-    <id>http://yoursite.com//PAT/cjrlso9k1000ahcv92fh7rurv/</id>
+    <link href="http://yoursite.com//PAT/cjrlwel2s000d4ov9glbi7t0t/"/>
+    <id>http://yoursite.com//PAT/cjrlwel2s000d4ov9glbi7t0t/</id>
     <published>2019-02-01T06:36:46.000Z</published>
     <updated>2019-02-01T06:38:58.715Z</updated>
     
@@ -72,8 +99,8 @@
   
   <entry>
     <title>PAT_1118</title>
-    <link href="http://yoursite.com//PAT/cjrlso9jr0005hcv9nsg2ehso/"/>
-    <id>http://yoursite.com//PAT/cjrlso9jr0005hcv9nsg2ehso/</id>
+    <link href="http://yoursite.com//PAT/cjrlwel2e00084ov9khcjuoiv/"/>
+    <id>http://yoursite.com//PAT/cjrlwel2e00084ov9khcjuoiv/</id>
     <published>2019-01-30T06:21:24.000Z</published>
     <updated>2019-01-30T08:24:45.188Z</updated>
     
@@ -99,8 +126,8 @@
   
   <entry>
     <title>PAT_1116</title>
-    <link href="http://yoursite.com//PAT/cjrlso9jl0002hcv9nu1ml36u/"/>
-    <id>http://yoursite.com//PAT/cjrlso9jl0002hcv9nu1ml36u/</id>
+    <link href="http://yoursite.com//PAT/cjrlwel2a00064ov9h4ddy04n/"/>
+    <id>http://yoursite.com//PAT/cjrlwel2a00064ov9h4ddy04n/</id>
     <published>2019-01-29T14:35:16.000Z</published>
     <updated>2019-01-29T14:46:16.248Z</updated>
     
@@ -126,8 +153,8 @@
   
   <entry>
     <title>PAT_1122</title>
-    <link href="http://yoursite.com//PAT/cjrlso9jv0007hcv98a1p8v51/"/>
-    <id>http://yoursite.com//PAT/cjrlso9jv0007hcv98a1p8v51/</id>
+    <link href="http://yoursite.com//PAT/cjrlwel2n000c4ov93mv0zm6g/"/>
+    <id>http://yoursite.com//PAT/cjrlwel2n000c4ov93mv0zm6g/</id>
     <published>2019-01-29T10:21:19.000Z</published>
     <updated>2019-01-29T10:29:33.077Z</updated>
     
@@ -153,8 +180,8 @@
   
   <entry>
     <title>PAT_1121</title>
-    <link href="http://yoursite.com//PAT/cjrlso9jt0006hcv9lklai2z1/"/>
-    <id>http://yoursite.com//PAT/cjrlso9jt0006hcv9lklai2z1/</id>
+    <link href="http://yoursite.com//PAT/cjrlwel2h00094ov9z0zlx7zg/"/>
+    <id>http://yoursite.com//PAT/cjrlwel2h00094ov9z0zlx7zg/</id>
     <published>2019-01-29T07:49:42.000Z</published>
     <updated>2019-01-29T08:06:32.353Z</updated>
     
@@ -180,8 +207,8 @@
   
   <entry>
     <title>PAT_1090</title>
-    <link href="http://yoursite.com//PAT/cjrlso9jd0000hcv9npn7hako/"/>
-    <id>http://yoursite.com//PAT/cjrlso9jd0000hcv9npn7hako/</id>
+    <link href="http://yoursite.com//PAT/cjrlwel1r00004ov9qkcddwc5/"/>
+    <id>http://yoursite.com//PAT/cjrlwel1r00004ov9qkcddwc5/</id>
     <published>2019-01-29T03:13:00.000Z</published>
     <updated>2019-01-29T07:51:35.385Z</updated>
     
