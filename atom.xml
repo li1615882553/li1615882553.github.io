@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-01T12:53:45.391Z</updated>
+  <updated>2019-02-02T04:45:13.605Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,9 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PAT_1133</title>
+    <link href="http://yoursite.com//PAT/cjrmzunm3001ilsv97lims71p/"/>
+    <id>http://yoursite.com//PAT/cjrmzunm3001ilsv97lims71p/</id>
+    <published>2019-02-02T04:42:24.000Z</published>
+    <updated>2019-02-02T04:45:13.605Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1133-Splitting-A-Linked-List"><a href="#1133-Splitting-A-Linked-List" class="headerlink" title="1133 Splitting A Linked List"></a><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805346776760320" target="_blank" rel="noopener">1133 Splitting A Linked List</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Given a singly linked list, you are supposed to rearrange its elements so that all the negative values appear before all of the non-negatives, and all the values in [0, K] appear before all those greater than K. The order of the elements inside each class must not be changed. For example, given the list being 18→7→-4→0→5→-6→10→11→-2 and K being 10, you must output -4→-6→-2→7→0→5→10→18→11.</p><h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains the address of the first node, a positive N (≤105) which is the total number of nodes, and a positive K (≤103). The address of a node is a 5-digit nonnegative integer, and NULL is represented by −1.</p><p>Then N lines follow, each describes a node in the format:</p><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Address </span><span class="meta">Data</span> Next</span><br></pre></td></tr></table></figure><p>where <code>Address</code> is the position of the node, <code>Data</code> is an integer in [−105,105], and <code>Next</code> is the position of the next node. It is guaranteed that the list is not empty.</p><h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each case, output in order (from beginning to the end of the list) the resulting linked list. Each node occupies a line, and is printed in the same format as in the input.</p><h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">00100 </span><span class="number">9</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">23333 </span><span class="number">10</span> <span class="number">27777</span></span><br><span class="line"><span class="symbol">00000 </span><span class="number">0</span> <span class="number">99999</span></span><br><span class="line"><span class="symbol">00100 </span><span class="number">18</span> <span class="number">12309</span></span><br><span class="line"><span class="symbol">68237 </span>-<span class="number">6</span> <span class="number">23333</span></span><br><span class="line"><span class="symbol">33218 </span>-<span class="number">4</span> <span class="number">00000</span></span><br><span class="line"><span class="symbol">48652 </span>-<span class="number">2</span> -<span class="number">1</span></span><br><span class="line"><span class="symbol">99999 </span><span class="number">5</span> <span class="number">68237</span></span><br><span class="line"><span class="symbol">27777 </span><span class="number">11</span> <span class="number">48652</span></span><br><span class="line"><span class="symbol">12309 </span><span class="number">7</span> <span class="number">33218</span></span><br></pre></td></tr></table></figure><h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">33218 </span>-<span class="number">4</span> <span class="number">68237</span></span><br><span class="line"><span class="symbol">68237 </span>-<span class="number">6</span> <span class="number">48652</span></span><br><span class="line"><span class="symbol">48652 </span>-<span class="number">2</span> <span class="number">12309</span></span><br><span class="line"><span class="symbol">12309 </span><span class="number">7</span> <span class="number">00000</span></span><br><span class="line"><span class="symbol">00000 </span><span class="number">0</span> <span class="number">99999</span></span><br><span class="line"><span class="symbol">99999 </span><span class="number">5</span> <span class="number">23333</span></span><br><span class="line"><span class="symbol">23333 </span><span class="number">10</span> <span class="number">00100</span></span><br><span class="line"><span class="symbol">00100 </span><span class="number">18</span> <span class="number">27777</span></span><br><span class="line"><span class="symbol">27777 </span><span class="number">11</span> -<span class="number">1</span></span><br></pre></td></tr></table></figure><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可以发现，将所有节点分为三部分，首先是小于0，第二部分为大于等于0且小于等于k，第三部分为大于k的，我们需要将相同部分交换到相邻位置，可以直接使用三个queue来进行模拟即可</p><h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> add,date,next;</span><br><span class="line">&#125;node[maxn];</span><br><span class="line"><span class="keyword">int</span> add,N,K;</span><br><span class="line"><span class="keyword">int</span> mapp[maxn];</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; negative,small,last;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;add,&amp;N,&amp;K);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span> ;i &lt; N;i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;node[i].add,&amp;node[i].date,&amp;node[i].next);</span><br><span class="line">        mapp[node[i].add] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> k = add;</span><br><span class="line">    <span class="keyword">while</span>(k != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(node[mapp[k]].date &lt; <span class="number">0</span>)</span><br><span class="line">            negative.push(node[mapp[k]].add);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(node[mapp[k]].date &lt;= K)</span><br><span class="line">                small.push(node[mapp[k]].add);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                last.push(node[mapp[k]].add);</span><br><span class="line">        &#125;</span><br><span class="line">        k = node[mapp[k]].next;</span><br><span class="line">    &#125;</span><br><span class="line">    Node tmp;</span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span>;;</span><br><span class="line">    <span class="keyword">while</span>(!negative.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = node[mapp[negative.front()]];negative.pop();</span><br><span class="line">        <span class="keyword">if</span>(!flag)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%05d %d"</span>,tmp.add,tmp.date),flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" %05d\n"</span>,tmp.add),<span class="built_in">printf</span>(<span class="string">"%05d %d"</span>,tmp.add,tmp.date);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!small.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = node[mapp[small.front()]];small.pop();</span><br><span class="line">        <span class="keyword">if</span>(!flag)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%05d %d"</span>,tmp.add,tmp.date),flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" %05d\n"</span>,tmp.add),<span class="built_in">printf</span>(<span class="string">"%05d %d"</span>,tmp.add,tmp.date);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!last.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = node[mapp[last.front()]];last.pop();</span><br><span class="line">        <span class="keyword">if</span>(!flag)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%05d %d"</span>,tmp.add,tmp.date),flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" %05d\n"</span>,tmp.add),<span class="built_in">printf</span>(<span class="string">"%05d %d"</span>,tmp.add,tmp.date);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">" -1\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;1133-Splitting-A-Linked-List&quot;&gt;&lt;a href=&quot;#1133-Splitting-A-Linked-List&quot; class=&quot;headerlink&quot; title=&quot;1133 Splitting A Linked List&quot;&gt;&lt;/a&gt;&lt;a
+      
+    
+    </summary>
+    
+      <category term="PAT" scheme="http://yoursite.com/categories/PAT/"/>
+    
+    
+      <category term="PAT" scheme="http://yoursite.com/tags/PAT/"/>
+    
+      <category term="queue" scheme="http://yoursite.com/tags/queue/"/>
+    
+      <category term="STL" scheme="http://yoursite.com/tags/STL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PAT_1094</title>
-    <link href="http://yoursite.com//PAT/cjrm1qnw300054sv92yfn5z3e/"/>
-    <id>http://yoursite.com//PAT/cjrm1qnw300054sv92yfn5z3e/</id>
+    <link href="http://yoursite.com//PAT/cjrmzu6j00001lsv9j3ntg519/"/>
+    <id>http://yoursite.com//PAT/cjrmzu6j00001lsv9j3ntg519/</id>
     <published>2019-02-01T12:46:59.000Z</published>
     <updated>2019-02-01T12:53:45.391Z</updated>
     
@@ -45,8 +74,8 @@
   
   <entry>
     <title>PAT_1093</title>
-    <link href="http://yoursite.com//PAT/cjrm1qnvy00024sv993reap3k/"/>
-    <id>http://yoursite.com//PAT/cjrm1qnvy00024sv993reap3k/</id>
+    <link href="http://yoursite.com//PAT/cjrmzu6j60004lsv9fs0n8d3f/"/>
+    <id>http://yoursite.com//PAT/cjrmzu6j60004lsv9fs0n8d3f/</id>
     <published>2019-02-01T10:17:48.000Z</published>
     <updated>2019-02-01T10:20:47.076Z</updated>
     
@@ -72,8 +101,8 @@
   
   <entry>
     <title>PAT_1146</title>
-    <link href="http://yoursite.com//PAT/cjrm1qo4500184sv9psbw7n89/"/>
-    <id>http://yoursite.com//PAT/cjrm1qo4500184sv9psbw7n89/</id>
+    <link href="http://yoursite.com//PAT/cjrmzu6lw0015lsv9rci104k1/"/>
+    <id>http://yoursite.com//PAT/cjrmzu6lw0015lsv9rci104k1/</id>
     <published>2019-02-01T08:33:04.000Z</published>
     <updated>2019-02-01T08:36:50.117Z</updated>
     
@@ -99,8 +128,8 @@
   
   <entry>
     <title>PAT_1144</title>
-    <link href="http://yoursite.com//PAT/cjrm1qo3y00164sv9jp99gqe5/"/>
-    <id>http://yoursite.com//PAT/cjrm1qo3y00164sv9jp99gqe5/</id>
+    <link href="http://yoursite.com//PAT/cjrmzu6ll0012lsv919o1guwb/"/>
+    <id>http://yoursite.com//PAT/cjrmzu6ll0012lsv919o1guwb/</id>
     <published>2019-02-01T06:36:46.000Z</published>
     <updated>2019-02-01T06:38:58.715Z</updated>
     
@@ -126,8 +155,8 @@
   
   <entry>
     <title>PAT_1118</title>
-    <link href="http://yoursite.com//PAT/cjrm1qnw800074sv99mhlk9qz/"/>
-    <id>http://yoursite.com//PAT/cjrm1qnw800074sv99mhlk9qz/</id>
+    <link href="http://yoursite.com//PAT/cjrmzu6lf0010lsv9o6dbrbs5/"/>
+    <id>http://yoursite.com//PAT/cjrmzu6lf0010lsv9o6dbrbs5/</id>
     <published>2019-01-30T06:21:24.000Z</published>
     <updated>2019-01-30T08:24:45.188Z</updated>
     
@@ -153,8 +182,8 @@
   
   <entry>
     <title>PAT_1116</title>
-    <link href="http://yoursite.com//PAT/cjrm1qnw600064sv92vqk7gtb/"/>
-    <id>http://yoursite.com//PAT/cjrm1qnw600064sv92vqk7gtb/</id>
+    <link href="http://yoursite.com//PAT/cjrmzu6jd0009lsv90wcnwe2w/"/>
+    <id>http://yoursite.com//PAT/cjrmzu6jd0009lsv90wcnwe2w/</id>
     <published>2019-01-29T14:35:16.000Z</published>
     <updated>2019-01-29T14:46:16.248Z</updated>
     
@@ -180,8 +209,8 @@
   
   <entry>
     <title>PAT_1122</title>
-    <link href="http://yoursite.com//PAT/cjrm1qnwe000b4sv9kynww05y/"/>
-    <id>http://yoursite.com//PAT/cjrm1qnwe000b4sv9kynww05y/</id>
+    <link href="http://yoursite.com//PAT/cjrmzu6j90006lsv98lolqsmn/"/>
+    <id>http://yoursite.com//PAT/cjrmzu6j90006lsv98lolqsmn/</id>
     <published>2019-01-29T10:21:19.000Z</published>
     <updated>2019-01-29T10:29:33.077Z</updated>
     
@@ -207,8 +236,8 @@
   
   <entry>
     <title>PAT_1121</title>
-    <link href="http://yoursite.com//PAT/cjrm1qnwc000a4sv93xwlr8xm/"/>
-    <id>http://yoursite.com//PAT/cjrm1qnwc000a4sv93xwlr8xm/</id>
+    <link href="http://yoursite.com//PAT/cjrmzu6j80005lsv9xvq0krgi/"/>
+    <id>http://yoursite.com//PAT/cjrmzu6j80005lsv9xvq0krgi/</id>
     <published>2019-01-29T07:49:42.000Z</published>
     <updated>2019-01-29T08:06:32.353Z</updated>
     
@@ -234,8 +263,8 @@
   
   <entry>
     <title>PAT_1090</title>
-    <link href="http://yoursite.com//PAT/cjrm1qnvt00014sv99ehbrge9/"/>
-    <id>http://yoursite.com//PAT/cjrm1qnvt00014sv99ehbrge9/</id>
+    <link href="http://yoursite.com//PAT/cjrmzu6im0000lsv9u5zwzrg8/"/>
+    <id>http://yoursite.com//PAT/cjrmzu6im0000lsv9u5zwzrg8/</id>
     <published>2019-01-29T03:13:00.000Z</published>
     <updated>2019-01-29T07:51:35.385Z</updated>
     
