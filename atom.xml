@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-05T13:49:39.716Z</updated>
+  <updated>2019-02-25T03:30:34.813Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,9 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PAT_1091</title>
+    <link href="http://yoursite.com//PAT/cjsjsbf890000csv91ik8xyp4/"/>
+    <id>http://yoursite.com//PAT/cjsjsbf890000csv91ik8xyp4/</id>
+    <published>2019-02-25T03:26:01.000Z</published>
+    <updated>2019-02-25T03:30:34.813Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1091-Acute-Stroke"><a href="#1091-Acute-Stroke" class="headerlink" title="1091 Acute Stroke"></a><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805375457411072" target="_blank" rel="noopener">1091 Acute Stroke</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>One important factor to identify acute stroke (急性脑卒中) is the volume of the stroke core. Given the results of image analysis in which the core regions are identified in each MRI slice, your job is to calculate the volume of the stroke core.</p><h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains 4 positive integers: M, N, L and T, where M and N are the sizes of each slice (i.e. pixels of a slice are in an M×N matrix, and the maximum resolution is 1286 by 128); L (≤60) is the number of slices of a brain; and T is the integer threshold (i.e. if the volume of a connected core is less than T, then that core must not be counted).</p><p>Then L slices are given. Each slice is represented by an M×N matrix of 0’s and 1’s, where 1 represents a pixel of stroke, and 0 means normal. Since the thickness of a slice is a constant, we only have to count the number of 1’s to obtain the volume. However, there might be several separated core regions in a brain, and only those with their volumes no less than T are counted. Two pixels are <strong>connected</strong>and hence belong to the same region if they share a common side, as shown by Figure 1 where all the 6 red pixels are connected to the blue one.</p><h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each case, output in a line the total volume of the stroke core.</p><h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">3 </span><span class="number">4</span> <span class="number">5</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">0</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">0</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">0</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">0</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">1</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">0</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">0</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">0</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">0</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">0</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">0</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">0</span> <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure><h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">26</span></span><br></pre></td></tr></table></figure><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>开始使用的是<code>dfs</code>，类似于<code>dfs</code>求解连通块的算法，但是发现<code>dfs</code>无论怎么修改后面两组数据总是出现段错误，但是计算后面的内存使用情况也没有超过<code>64M</code>,所以打算换用<code>bfs</code>求解，使用<code>bfs</code>可以得到正确结果</p><p><code>dfs</code>程序只得到了<code>25</code>分，并没有满分，如果有修改并可以通过的地方，感觉大家的指点</p><h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><h2 id="bfs方法-30分"><a href="#bfs方法-30分" class="headerlink" title="bfs方法(30分)"></a>bfs方法(30分)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;initializer_list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1286</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">128</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxd = <span class="number">60</span>;</span><br><span class="line"><span class="keyword">int</span> m,n,l,k;</span><br><span class="line"><span class="keyword">int</span> mapp[maxd][maxn][maxm];</span><br><span class="line"><span class="keyword">bool</span> flag[maxd][maxn][maxm];</span><br><span class="line"><span class="keyword">int</span> dx[] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> dy[] = &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> dz[] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> tx,ty,tz;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x,y,z;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node tmp;</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">queue</span>&lt;Node&gt; que;</span><br><span class="line">    que.emplace(Node&#123;x,y,z&#125;);</span><br><span class="line">    <span class="keyword">while</span>(!que.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = que.front();que.pop();</span><br><span class="line">        num ++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ;i &lt; <span class="number">6</span>;i ++)</span><br><span class="line">        &#123;</span><br><span class="line">            tx = tmp.x + dx[i];ty = tmp.y + dy[i];tz = tmp.z + dz[i];</span><br><span class="line">            <span class="keyword">if</span>(tx &gt;= <span class="number">0</span> &amp;&amp; tx &lt; l &amp;&amp; ty &gt;= <span class="number">0</span> &amp;&amp; ty &lt; m &amp;&amp; tz &gt;= <span class="number">0</span> &amp;&amp; tz &lt; n &amp;&amp; !flag[tx][ty][tz]  &amp;&amp; mapp[tx][ty][tz])</span><br><span class="line">            &#123;</span><br><span class="line">                flag[tx][ty][tz] = <span class="number">1</span>;</span><br><span class="line">                que.emplace(Node&#123;tx,ty,tz&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num&gt;=k?num:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(flag,<span class="number">0</span>,<span class="keyword">sizeof</span>(flag));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;m,&amp;n,&amp;l,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; l;i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; m;j ++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> z = <span class="number">0</span>;z &lt; n;z ++)</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;mapp[i][j][z]);</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; l;i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; m;j ++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> z = <span class="number">0</span>;z &lt; n;z ++)</span><br><span class="line">                <span class="keyword">if</span>(!flag[i][j][z] &amp;&amp; mapp[i][j][z])</span><br><span class="line">                &#123;</span><br><span class="line">                    flag[i][j][z] = <span class="number">1</span>;</span><br><span class="line">                    ans += bfs(i,j,z);</span><br><span class="line">                &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="dfs方法-25分"><a href="#dfs方法-25分" class="headerlink" title="dfs方法(25分)"></a>dfs方法(25分)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;initializer_list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1290</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">130</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxd = <span class="number">65</span>;</span><br><span class="line"><span class="keyword">int</span> m,n,l,k;</span><br><span class="line"><span class="keyword">int</span> mapp[maxd][maxn][maxm];</span><br><span class="line"><span class="keyword">bool</span> flag[maxd][maxn][maxm];</span><br><span class="line"><span class="keyword">int</span> dx[] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> dy[] = &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> dz[] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> tx,ty,tz;</span><br><span class="line"><span class="keyword">int</span> num;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span> ;i &lt; <span class="number">6</span>;i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        tx = x + dx[i];ty = y + dy[i];tz = z + dz[i];</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span>( tx &gt;= <span class="number">0</span> &amp;&amp; tx &lt; l &amp;&amp; ty &gt;= <span class="number">0</span> &amp;&amp; ty &lt; m &amp;&amp; tz &gt;= <span class="number">0</span> &amp;&amp; tz &lt; n &amp;&amp; !flag[tx][ty][tz]  &amp;&amp; mapp[tx][ty][tz])</span><br><span class="line">        &#123;</span><br><span class="line"><span class="comment">//            cout &lt;&lt; x &lt;&lt; " * " &lt;&lt; y &lt;&lt; " * "&lt;&lt; z &lt;&lt; " * " &lt;&lt; tx &lt;&lt; " "&lt;&lt; ty &lt;&lt; " "&lt;&lt; tz &lt;&lt; endl;</span></span><br><span class="line">            flag[tx][ty][tz] = <span class="number">1</span>;</span><br><span class="line">            num ++;</span><br><span class="line">            dfs(tx,ty,tz);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;m,&amp;n,&amp;l,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; l;i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; m;j ++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> z = <span class="number">0</span>;z &lt; n;z ++)&#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;mapp[i][j][z]);</span><br><span class="line">            &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; l;i ++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; m;j ++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> z = <span class="number">0</span>;z &lt; n;z ++)</span><br><span class="line">                <span class="keyword">if</span>(!flag[i][j][z] &amp;&amp; mapp[i][j][z])</span><br><span class="line">                &#123;</span><br><span class="line">                    num = <span class="number">1</span>;</span><br><span class="line">                    flag[i][j][z] = <span class="number">1</span>;</span><br><span class="line">                    dfs(i,j,z);</span><br><span class="line"><span class="comment">//                    cout &lt;&lt; " num = "&lt;&lt; num &lt;&lt; endl;</span></span><br><span class="line">                    <span class="keyword">if</span>(num &gt;= k)</span><br><span class="line">                        ans += num;</span><br><span class="line">                &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;1091-Acute-Stroke&quot;&gt;&lt;a href=&quot;#1091-Acute-Stroke&quot; class=&quot;headerlink&quot; title=&quot;1091 Acute Stroke&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://pintia.cn/problem-
+      
+    
+    </summary>
+    
+      <category term="PAT" scheme="http://yoursite.com/categories/PAT/"/>
+    
+    
+      <category term="PAT" scheme="http://yoursite.com/tags/PAT/"/>
+    
+      <category term="BFS" scheme="http://yoursite.com/tags/BFS/"/>
+    
+      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PAT_1110</title>
-    <link href="http://yoursite.com//PAT/cjrrt87wx00077kv99sh5jp8r/"/>
-    <id>http://yoursite.com//PAT/cjrrt87wx00077kv99sh5jp8r/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbf8o0005csv9qbba8753/"/>
+    <id>http://yoursite.com//PAT/cjsjsbf8o0005csv9qbba8753/</id>
     <published>2019-02-05T13:31:44.000Z</published>
     <updated>2019-02-05T13:49:39.716Z</updated>
     
@@ -47,8 +76,8 @@
   
   <entry>
     <title>PAT_1109</title>
-    <link href="http://yoursite.com//PAT/cjrrt87wz00087kv9fm62f3di/"/>
-    <id>http://yoursite.com//PAT/cjrrt87wz00087kv9fm62f3di/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbfgm000zcsv9mdwrj5r2/"/>
+    <id>http://yoursite.com//PAT/cjsjsbfgm000zcsv9mdwrj5r2/</id>
     <published>2019-02-04T03:42:39.000Z</published>
     <updated>2019-02-04T03:45:19.625Z</updated>
     
@@ -74,8 +103,8 @@
   
   <entry>
     <title>PAT—_1137</title>
-    <link href="http://yoursite.com//PAT/cjrrt88d5000x7kv9dj4piw79/"/>
-    <id>http://yoursite.com//PAT/cjrrt88d5000x7kv9dj4piw79/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbfh2001ccsv9jmntqchd/"/>
+    <id>http://yoursite.com//PAT/cjsjsbfh2001ccsv9jmntqchd/</id>
     <published>2019-02-02T10:14:31.000Z</published>
     <updated>2019-02-02T10:24:14.835Z</updated>
     
@@ -103,8 +132,8 @@
   
   <entry>
     <title>PAT_1133</title>
-    <link href="http://yoursite.com//PAT/cjrrt88dj00187kv9xu5qetar/"/>
-    <id>http://yoursite.com//PAT/cjrrt88dj00187kv9xu5qetar/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbfm40027csv9vkm8eb5n/"/>
+    <id>http://yoursite.com//PAT/cjsjsbfm40027csv9vkm8eb5n/</id>
     <published>2019-02-02T04:42:24.000Z</published>
     <updated>2019-02-02T04:45:13.605Z</updated>
     
@@ -132,8 +161,8 @@
   
   <entry>
     <title>PAT_1094</title>
-    <link href="http://yoursite.com//PAT/cjrrt88dd000z7kv96ymz8ifl/"/>
-    <id>http://yoursite.com//PAT/cjrrt88dd000z7kv96ymz8ifl/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbf8q0006csv9t6hmdzkh/"/>
+    <id>http://yoursite.com//PAT/cjsjsbf8q0006csv9t6hmdzkh/</id>
     <published>2019-02-01T12:46:59.000Z</published>
     <updated>2019-02-01T12:53:45.391Z</updated>
     
@@ -159,8 +188,8 @@
   
   <entry>
     <title>PAT_1093</title>
-    <link href="http://yoursite.com//PAT/cjrrt8848000j7kv9ltspibb7/"/>
-    <id>http://yoursite.com//PAT/cjrrt8848000j7kv9ltspibb7/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbf8m0004csv9zdxlib31/"/>
+    <id>http://yoursite.com//PAT/cjsjsbf8m0004csv9zdxlib31/</id>
     <published>2019-02-01T10:17:48.000Z</published>
     <updated>2019-02-01T10:20:47.076Z</updated>
     
@@ -186,8 +215,8 @@
   
   <entry>
     <title>PAT_1146</title>
-    <link href="http://yoursite.com//PAT/cjrrt88de00117kv9t5wvbqjb/"/>
-    <id>http://yoursite.com//PAT/cjrrt88de00117kv9t5wvbqjb/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbfh6001fcsv91wr5n87a/"/>
+    <id>http://yoursite.com//PAT/cjsjsbfh6001fcsv91wr5n87a/</id>
     <published>2019-02-01T08:33:04.000Z</published>
     <updated>2019-02-01T08:36:50.117Z</updated>
     
@@ -213,8 +242,8 @@
   
   <entry>
     <title>PAT_1144</title>
-    <link href="http://yoursite.com//PAT/cjrrt88dh00157kv96kh09nxw/"/>
-    <id>http://yoursite.com//PAT/cjrrt88dh00157kv96kh09nxw/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbfh8001icsv9ewk286ej/"/>
+    <id>http://yoursite.com//PAT/cjsjsbfh8001icsv9ewk286ej/</id>
     <published>2019-02-01T06:36:46.000Z</published>
     <updated>2019-02-01T06:38:58.715Z</updated>
     
@@ -240,8 +269,8 @@
   
   <entry>
     <title>PAT_1118</title>
-    <link href="http://yoursite.com//PAT/cjrrt88dn001c7kv9moilwc2p/"/>
-    <id>http://yoursite.com//PAT/cjrrt88dn001c7kv9moilwc2p/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbfh00018csv9428nhc5b/"/>
+    <id>http://yoursite.com//PAT/cjsjsbfh00018csv9428nhc5b/</id>
     <published>2019-01-30T06:21:24.000Z</published>
     <updated>2019-01-30T08:24:45.188Z</updated>
     
@@ -267,8 +296,8 @@
   
   <entry>
     <title>PAT_1116</title>
-    <link href="http://yoursite.com//PAT/cjrrt8846000i7kv9oleklb7j/"/>
-    <id>http://yoursite.com//PAT/cjrrt8846000i7kv9oleklb7j/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbfgy0016csv9qvbcp1kh/"/>
+    <id>http://yoursite.com//PAT/cjsjsbfgy0016csv9qvbcp1kh/</id>
     <published>2019-01-29T14:35:16.000Z</published>
     <updated>2019-01-29T14:46:16.248Z</updated>
     
@@ -294,8 +323,8 @@
   
   <entry>
     <title>PAT_1122</title>
-    <link href="http://yoursite.com//PAT/cjrrt88cw000u7kv92rkswi11/"/>
-    <id>http://yoursite.com//PAT/cjrrt88cw000u7kv92rkswi11/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbfgo0011csv9so0icul6/"/>
+    <id>http://yoursite.com//PAT/cjsjsbfgo0011csv9so0icul6/</id>
     <published>2019-01-29T10:21:19.000Z</published>
     <updated>2019-01-29T10:29:33.077Z</updated>
     
@@ -321,8 +350,8 @@
   
   <entry>
     <title>PAT_1121</title>
-    <link href="http://yoursite.com//PAT/cjrrt88cr000s7kv9bl6fq1nw/"/>
-    <id>http://yoursite.com//PAT/cjrrt88cr000s7kv9bl6fq1nw/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbfgt0014csv9skdmoviq/"/>
+    <id>http://yoursite.com//PAT/cjsjsbfgt0014csv9skdmoviq/</id>
     <published>2019-01-29T07:49:42.000Z</published>
     <updated>2019-01-29T08:06:32.353Z</updated>
     
@@ -348,8 +377,8 @@
   
   <entry>
     <title>PAT_1090</title>
-    <link href="http://yoursite.com//PAT/cjrrt87we00007kv9vcj84ouk/"/>
-    <id>http://yoursite.com//PAT/cjrrt87we00007kv9vcj84ouk/</id>
+    <link href="http://yoursite.com//PAT/cjsjsbf8f0001csv9tbnuez3t/"/>
+    <id>http://yoursite.com//PAT/cjsjsbf8f0001csv9tbnuez3t/</id>
     <published>2019-01-29T03:13:00.000Z</published>
     <updated>2019-01-29T07:51:35.385Z</updated>
     
